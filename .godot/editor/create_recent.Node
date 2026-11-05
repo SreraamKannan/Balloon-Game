@@ -1,0 +1,12 @@
+Label
+CanvasLayer
+CanvasGroup
+Control
+Sprite2D
+CollisionShape2D
+Area2D
+Node2D
+StaticBody2D
+Parallax2D
+CharacterBody2D
+Camera2D
