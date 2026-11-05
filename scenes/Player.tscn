@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://j8xgntybhdqv"]
+
+[ext_resource type="Script" uid="uid://be4e1iuig2k2e" path="res://scripts/player.gd" id="1_v6fml"]
+[ext_resource type="Texture2D" uid="uid://kbxnk72l4j5p" path="res://balloon.png" id="2_v6fml"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p57ef"]
+radius = 29.0
+height = 74.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1624794972]
+script = ExtResource("1_v6fml")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1712673805]
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("2_v6fml")
+
+[node name="hitbox" type="CollisionShape2D" parent="." unique_id=705029783]
+position = Vector2(0, -16)
+shape = SubResource("CapsuleShape2D_p57ef")

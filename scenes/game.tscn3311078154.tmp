@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://lxgo6a7putjq"]
+
+[ext_resource type="Script" uid="uid://b7okfvix0mgr2" path="res://scenes/game_logic.gd" id="1_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://blw25a1dnq3yk" path="res://10.png" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://j8xgntybhdqv" path="res://scenes/Player.tscn" id="3_lnu2h"]
+
+[node name="game" type="Node2D" unique_id=917383285]
+script = ExtResource("1_lbhrr")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=586888481]
+scroll_offset = Vector2(0, 540)
+repeat_size = Vector2(2304, 0)
+autoscroll = Vector2(-300, 0)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1031611772]
+texture = ExtResource("1_lnu2h")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=436664885]
+position = Vector2(960, 540)
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." unique_id=1624794972 instance=ExtResource("3_lnu2h")]
+position = Vector2(960, 371)

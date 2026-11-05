@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://lxgo6a7putjq"]
+
+[ext_resource type="Script" uid="uid://b7okfvix0mgr2" path="res://scenes/game_logic.gd" id="1_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://b85ydp03ysw70" path="res://bg.png" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://j8xgntybhdqv" path="res://scenes/Player.tscn" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://075j0vjodxv7" path="res://scripts/crow_spawner.gd" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bwi6wso1vsjol" path="res://scenes/Crow.tscn" id="5_iywne"]
+[ext_resource type="Script" uid="uid://bg34dlvnxx0q1" path="res://scenes/ui.gd" id="6_p57ef"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_28y07"]
+normal = Vector2(-1, 0)
+distance = -360.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lnu2h"]
+normal = Vector2(1, 0)
+distance = -360.0
+
+[node name="game" type="Node2D" unique_id=917383285]
+script = ExtResource("1_lbhrr")
+
+[node name="BgParallax" type="Parallax2D" parent="." unique_id=586888481]
+scroll_offset = Vector2(0, 540)
+repeat_size = Vector2(0, 2454)
+autoscroll = Vector2(0, 300)
+repeat_times = 3
+
+[node name="bg sprite" type="Sprite2D" parent="BgParallax" unique_id=1031611772]
+texture = ExtResource("2_lnu2h")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=436664885]
+
+[node name="Player" parent="." unique_id=1624794972 instance=ExtResource("3_lnu2h")]
+position = Vector2(0, 242)
+
+[node name="wall" type="StaticBody2D" parent="." unique_id=543054781]
+
+[node name="right" type="CollisionShape2D" parent="wall" unique_id=1550961406]
+shape = SubResource("WorldBoundaryShape2D_28y07")
+
+[node name="left" type="CollisionShape2D" parent="wall" unique_id=1394345711]
+shape = SubResource("WorldBoundaryShape2D_lnu2h")
+
+[node name="CrowSpawner" type="Node2D" parent="wall" unique_id=1059204185]
+position = Vector2(0, -540)
+script = ExtResource("4_lbhrr")
+crow_scene = ExtResource("5_iywne")
+
+[node name="highscore" type="CanvasLayer" parent="." unique_id=260403743]
+script = ExtResource("6_p57ef")
+
+[node name="score_label" type="Label" parent="highscore" unique_id=1404428190]
+offset_left = 11.0
+offset_top = 4.0
+offset_right = 51.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 30

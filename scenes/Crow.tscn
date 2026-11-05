@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bwi6wso1vsjol"]
+
+[ext_resource type="Script" uid="uid://clitb3nj25ida" path="res://scripts/crow.gd" id="1_gfjiu"]
+[ext_resource type="Texture2D" uid="uid://jhmd3yywyjx5" path="res://crow.png" id="2_gfjiu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p57ef"]
+radius = 89.38013
+height = 397.98453
+
+[node name="Crow" type="Area2D" unique_id=1140771161]
+position = Vector2(360, 504)
+scale = Vector2(0.1, 0.1)
+script = ExtResource("1_gfjiu")
+
+[node name="crow sprite" type="Sprite2D" parent="." unique_id=1306591564]
+rotation = 3.1415927
+texture = ExtResource("2_gfjiu")
+
+[node name="hitbox" type="CollisionShape2D" parent="." unique_id=1172910205]
+shape = SubResource("CapsuleShape2D_p57ef")
+
+[node name="hitbox2" type="CollisionShape2D" parent="." unique_id=1458334909]
+position = Vector2(266, 0)
+rotation = -1.0471976
+shape = SubResource("CapsuleShape2D_p57ef")
+
+[node name="hitbox3" type="CollisionShape2D" parent="." unique_id=1676858187]
+position = Vector2(-280, 0)
+rotation = 4.1887903
+shape = SubResource("CapsuleShape2D_p57ef")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
